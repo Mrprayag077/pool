@@ -1,0 +1,15 @@
+PART-B 3RD PY+HADOOP
+
+    hdfs dfs -mkdir /inputt5
+
+    hdfs dfs -ls
+
+    hdfs dfs -copyFromLocal ~/new28pyhd/word_count_data.txt inputt5
+
+    hdfs dfs -ls /inputt5
+
+    chmod 777 mapper.py reducer.py 
+
+    hadoop jar ~/new28pyhd/hadoop-streaming-3.2.4.jar -input /inputt5/word_count_data.txt -output /inputt5/out77 -mapper "python2 ~/new28pyhd/mapper.py" -reducer "python2 ~/new28pyhd/reducer.py"
+
+    history
